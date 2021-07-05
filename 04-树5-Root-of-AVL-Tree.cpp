@@ -25,7 +25,7 @@ int main() {
         cin >> value;
         tree = insertNode(value, tree);
     }
-    cout << tree->value << endl;
+    cout << tree->value  << endl;
     return 0;
 }
 
