@@ -64,11 +64,11 @@ node* rightLeftRotate(node* head) {
 
 node* insertNode(int value, node* head) {
     if (head == NULL) {
-        node* temp = new node();
-        temp->value = value;
-        temp->left = NULL; 
-        temp->right = NULL;
-        temp->height = 0;
+        head = new node();
+        head->value = value;
+        head->left = NULL; 
+        head->right = NULL;
+        head->height = 0;
     } else if (value < head->value) {
         head->left = insertNode(value, head->left);
         if (getHeight(head->left) - getHeight(head->right) == 2) {
@@ -80,8 +80,8 @@ node* insertNode(int value, node* head) {
         }
     } else if (value > head->value) {
         head->right = insertNode(value, head->right);
-        if (getHeight(head->right) - getHeight(head->left) == 2) {
-            if (value > head->value) {
+        if (getHeight(head->left) - getHeight(head->right) == -2) {
+            if (value > head->right->value) {
                 head = singleRightRotate(head);
             } else {
                 head = rightLeftRotate(head);
