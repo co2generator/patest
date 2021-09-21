@@ -1,1 +1,1 @@
-This is the project for Programming Ability Test, which is hosted by ZJU. Mainly for slef learning.
+This is the project for Programming Ability Test, which is orgnized by ZJU. Mainly for self learning.
