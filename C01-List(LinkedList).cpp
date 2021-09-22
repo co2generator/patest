@@ -31,7 +31,7 @@ List findKth(int K, List PtrL) {
 }
 
 // insertion
-List insertion(int X, int i, List PtrL) {
+List insert(int X, int i, List PtrL) {
     List p, s;
     if (i == 1) {
         s = (List)malloc(sizeof(struct LNode));
@@ -75,16 +75,4 @@ List deleteItem(int i, List PtrL) {
         free(s);
         return PtrL;
     }
-}
-
-
-
-
-
-
-
-
-int main() {
-
-    return 0;
 }
