@@ -25,6 +25,7 @@ bool isFull(MaxHeap H);
 void insert(MaxHeap H, ElementType item);
 ElementType deleteMax(MaxHeap H);
 
+
 int main() {
 
     return 0;
@@ -82,4 +83,28 @@ ElementType deleteMax(MaxHeap H) {
     }
     H->data[parent] = temp;
     return maxItem;
+}
+
+void PercDown( MaxHeap H, int p ) { 
+    int Parent, Child;
+    ElementType X;
+    X = H->data[p]; // 取出根结点存放的值
+    for( Parent=p; Parent*2<=H->size; Parent=Child ) {
+        Child = Parent * 2;
+        // Child指向左右子结点的较大者
+        if( (Child!=H->size) && (H->data[Child]<H->data[Child+1]) )
+            Child++;  
+        if( X >= H->data[Child] ) break;
+        else
+            H->data[Parent] = H->data[Child];
+    }
+    H->data[Parent] = X;
+}
+
+void BuildHeap( MaxHeap H ){
+    // 这里假设所有H->Size个元素已经存在H->Data[]中
+    int i;
+    // 从最后一个结点的父节点开始，到根结点1
+    for( i = H->size/2; i>0; i-- )
+        PercDown( H, i );
 }
